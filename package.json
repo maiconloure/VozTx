@@ -1,0 +1,23 @@
+{
+  "name": "VozTx",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/maiconloure/VozTx.git",
+  "author": "Maicon Lourenço <maiconloure@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^15.0.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "express": "^4.17.1",
+    "ffi-napi": "^4.0.3",
+    "mic": "^2.1.2",
+    "ref-napi": "^3.0.2",
+    "vosk": "^0.3.25",
+    "wav": "^1.0.2"
+  }
+}
