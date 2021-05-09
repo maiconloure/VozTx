@@ -1,18 +1,34 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import Fs from 'fs';
+import { ISpeechToTextRepository } from "../../repositories/ISpeechToTextRepository";
 import { Request, Response } from "express"
 import Recognizer from '../../../Recognizer'
 const recognizer = new Recognizer()
 
 export default class SpeechToTextController {
-  constructor(
-    private speechToTextRepository: any,
-) { }
+  private speechToTextRepository
+  constructor(speechToTextRepository: ISpeechToTextRepository) {
+    this.speechToTextRepository = speechToTextRepository
+   }
 
   public async index(req: Request, res: Response) {
-    const queryParams = req.query
-    console.log(queryParams)
-    const audioFile = await this.speechToTextRepository.getAudioFile(req.query.audio, req.query.filename)
-
-    const result = recognizer.index('src/modules/SpeechToText/temp/common_voice_pt_19277058.mp3')
-    return res.send({})
+    try { 
+      if (!req.query.audio) {
+        return res.status(400).send({ 
+          message: "Invalid request, check the 'audio' or 'filename' query parameters"
+        })
+      }
+      const audioFile = await this.speechToTextRepository.getAudioFile(req.query.audio.toString())
+      const STTResult = await recognizer.index(audioFile.path as string)
+      Fs.unlinkSync(audioFile.path as string)
+      return res.send({
+        filename: req.query.filename,
+        result: STTResult.result
+      })
+    } catch (error) {
+      return res.status(500).send({
+        result: error.message
+      })
+    }
   }
 }

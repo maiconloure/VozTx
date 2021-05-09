@@ -1,5 +1,6 @@
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 'use strict'
 

@@ -1,6 +1,8 @@
-import SpeechToTextRepository from "../../repositories/SpeechToTextRepository";
+import SpeechToTextRepository from "../../repositories/implementations/SpeechToTextRepository";
 import SpeechToTextController from "./SpeechToTextController";
 
-const speechToTextController = new SpeechToTextController( new SpeechToTextRepository())
+const speechToTextController = new SpeechToTextController(
+  new SpeechToTextRepository()
+  )
 
 export { speechToTextController }
