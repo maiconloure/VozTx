@@ -20,6 +20,7 @@ export default class SpeechToTextController {
       }
       const audioFile = await this.speechToTextRepository.getAudioFile(req.query.audio.toString())
       const STTResult = await recognizer.index(audioFile.path as string)
+      console.log(STTResult)
       Fs.unlinkSync(audioFile.path as string)
       return res.send({
         filename: req.query.filename,

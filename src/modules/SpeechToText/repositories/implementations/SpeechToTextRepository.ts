@@ -4,7 +4,6 @@ import Axios, { AxiosResponse } from 'axios'
 export default class SpeechToTextRepository {
   public async getAudioFile(url: string):Promise<Record<string, AxiosResponse<any>|string>> {
     const filename = url.match(/(?=\w+\.\w{3,4}$).+/)
-    console.log(filename)
     const path = `src/modules/SpeechToText/temp_files/${filename}`
     const writer = Fs.createWriteStream(path)
 
