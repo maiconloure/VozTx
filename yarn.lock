@@ -991,6 +991,14 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@solyarisoftware/voskjs@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@solyarisoftware/voskjs/-/voskjs-1.0.8.tgz#f803ba8585b53a8b5c822daed33e1059e2d0c09c"
+  integrity sha512-mFhPlTj6WVRgim/9f07pJu4O4BwsLCthe52V0Txb101JWWP+x1Z69F9JuzIydZdqh9lpkCVN2gwQQAvCoIZU0g==
+  dependencies:
+    vosk "^0.3.27"
+    wav "^1.0.2"
+
 "@types/body-parser@*":
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.0.tgz#0685b3c47eb3006ffed117cdd55164b61f80538f"
@@ -4536,6 +4544,17 @@ vosk@^0.3.25:
   dependencies:
     async "^3.2.0"
     ffi-napi "^4.0.3"
+    ref-napi ">=2.0.0"
+    wav "^1.0.2"
+
+vosk@^0.3.27:
+  version "0.3.27"
+  resolved "https://registry.yarnpkg.com/vosk/-/vosk-0.3.27.tgz#1b6205e3750381223bc9ee628e96e3d95e6fe95c"
+  integrity sha512-+1WxODmScEqJmuqFRRqD9d1AxiqnNvED1E6/fnV9RlxxrDWUuvPRtRo19BIacd7QalH67GR8wGAHjbfFHH3//Q==
+  dependencies:
+    async "^3.2.0"
+    ffi-napi "^4.0.3"
+    mic "^2.1.2"
     ref-napi ">=2.0.0"
     wav "^1.0.2"
 

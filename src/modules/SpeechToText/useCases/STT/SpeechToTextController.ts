@@ -15,13 +15,16 @@ export default class SpeechToTextController {
     try { 
       if (!req.query.audio) {
         return res.status(400).send({ 
-          message: "Invalid request, check the 'audio' or 'filename' query parameters"
+          message: "Invalid request, check the 'audio' parameter"
         })
       }
       const audioFile = await this.speechToTextRepository.getAudioFile(req.query.audio.toString())
       const STTResult = await recognizer.index(audioFile.path as string)
+  
       console.log(STTResult)
+
       Fs.unlinkSync(audioFile.path as string)
+      
       return res.send({
         filename: req.query.filename,
         result: STTResult.result

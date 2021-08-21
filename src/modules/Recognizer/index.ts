@@ -8,7 +8,7 @@ export default class Recognizer {
   private bufsize: number
 
   constructor() {
-    this.model = "src/modules/SpeechToText/model"
+    this.model = "src/model"
     this.sampleRate = 16000
     this.bufsize = 4000
   }
